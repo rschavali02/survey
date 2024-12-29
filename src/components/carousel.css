@@ -1,0 +1,45 @@
+.carousel-container {
+    position: relative; /* Establish a relative container for positioning */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.carousel-title {
+    position: absolute;
+    font-size: 20px;
+    color: #5f6368;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 40px 20px 20px; /* Add top padding to account for the title */
+}
+
+.new-survey {
+    position: relative; /* Allow child elements to position relative to this */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    max-width: 200px;
+    height: 250px;
+    padding: 20px;
+    background-color: #f1f3f4;
+    border: 2px dashed #bbb;
+    border-radius: 8px;
+    color: #5f6368;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.new-survey:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add hover effects back */
+}

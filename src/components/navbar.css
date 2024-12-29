@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #BC3908;
+    color: white;
+}
+
+.menu-btn {
+    font-size: 40px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
