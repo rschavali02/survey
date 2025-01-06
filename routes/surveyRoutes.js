@@ -1,14 +1,14 @@
 const express = require('express');
-const survey = require('../schema/survey'); // Import the Survey model
+const SurveyModel = require('../schema/survey'); // Import the Survey model
 
 const router = express.Router();
 
+//TODO: create GET given specific u_id
 
-
-// create new survey
+// Create new survey
 router.post('/', async (req, res) => {
     try {
-        const survey = new survey(req.body); // Create a new Survey document
+        const survey = new SurveyModel(req.body); // Create a new Survey document using SurveyModel
         await survey.save(); // Save to the database
         res.status(201).json(survey); // Respond with the created survey
     } catch (err) {
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 // Get all surveys
 router.get('/', async (req, res) => {
     try {
-        const surveys = await survey.find(); // Fetch all surveys
+        const surveys = await SurveyModel.find(); // Fetch all surveys using SurveyModel
         res.json(surveys);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 // Get a survey by ID
 router.get('/:id', async (req, res) => {
     try {
-        const survey = await survey.findById(req.params.id); // Find survey by ID
+        const survey = await SurveyModel.findById(req.params.id); // Find survey by ID using SurveyModel
         if (!survey) return res.status(404).json({ error: 'Survey not found' });
         res.json(survey);
     } catch (err) {
@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
 // Update a survey by ID
 router.put('/:id', async (req, res) => {
     try {
-        const survey = await survey.findByIdAndUpdate(req.params.id, req.body, {
+        const survey = await SurveyModel.findByIdAndUpdate(req.params.id, req.body, {
             new: true, // Return the updated document
             runValidators: true, // Validate the updates
         });
@@ -54,7 +54,7 @@ router.put('/:id', async (req, res) => {
 // Delete a survey by ID
 router.delete('/:id', async (req, res) => {
     try {
-        const survey = await survey.findByIdAndDelete(req.params.id); // Delete survey by ID
+        const survey = await SurveyModel.findByIdAndDelete(req.params.id); // Delete survey by ID using SurveyModel
         if (!survey) return res.status(404).json({ error: 'Survey not found' });
         res.json({ message: 'Survey deleted successfully' });
     } catch (err) {

@@ -1,0 +1,43 @@
+.homepage {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* General Section Styles */
+.section-title {
+    font-size: 24px; /* Match font size with "make better surveys" */
+    font-weight: bold; /* Ensure consistency */
+    margin-bottom: 20px; /* Add space below the title */
+    color: #333; /* Match font color */
+}
+
+.section-container {
+    padding: 20px; /* Consistent padding around sections */
+    margin: 0 auto; /* Center the content */
+    max-width: 1200px; /* Optional: Set a maximum width */
+}
+
+/* Adjust the Recent Surveys List */
+.survey-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Consistent spacing between survey items */
+    padding: 20px; /* Match carousel padding */
+}
+
+.survey-list-container .survey-item {
+    border: 1px dashed #ccc; /* Match the style of the "Blank Survey" card */
+    border-radius: 8px; /* Slight rounding for consistency */
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: left; /* Align text to the left */
+}
+
+.survey-list-container .survey-item h3 {
+    font-size: 18px; /* Match font size for survey titles */
+    margin: 0 0 10px 0; /* Space below the title */
+}
+
+.survey-list-container .survey-item p {
+    font-size: 14px; /* Smaller font for descriptions */
+    color: #666; /* Subtle text color */
+}

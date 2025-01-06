@@ -1,0 +1,46 @@
+/* Search bar container */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* Rounded edges */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Optional: limit the max width */
+    margin: 0 auto; /* Center horizontally */
+    max-height: 20px;
+}
+
+/* Icon styling */
+.search-bar-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+/* Input field styling */
+.search-bar-input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex: 1; /* Takes remaining space */
+    background: none; /* Inherits container background */
+    color: #5f6368;
+    font-weight: bold;
+}
+
+/* Focus state */
+.search-bar-container:focus-within {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    background-color: #fff; /* Lighter background on focus */
+}
+
+/* Placeholder text */
+.search-bar-input::placeholder {
+    position: absolute;
+    color: #5f6368;
+    font-weight: bold;
+}

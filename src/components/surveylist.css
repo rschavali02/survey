@@ -1,0 +1,20 @@
+.survey-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.list-title {
+    position: absolute;
+    font-size: 20px;
+    color: #5f6368;
+}
+
+.survey-item {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
