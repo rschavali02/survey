@@ -12,7 +12,7 @@ const Carousel = () => {
     useEffect(() => {
         const fetchTemplates = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/surveytemplates'); 
+                const response = await axios.get('http://localhost:4000/api/templates'); 
                 setTemplates(response.data); 
             } catch (err) {
                 setError('no available templates');
@@ -27,16 +27,12 @@ const Carousel = () => {
 
     return (
         <div className="carousel-container">
-            
-            <h2 className="carousel-title">make better surveys</h2>
-    
+            <h2 className="carousel-title">Make Better Surveys</h2>
             <div className="carousel">
                 {/* Blank survey card */}
                 <div className="carousel-item new-survey">
-                    
                     <p>Blank Survey</p>
                 </div>
-    
                 {/* Render templates */}
                 {loading ? (
                     <p>Loading templates...</p>
@@ -45,8 +41,8 @@ const Carousel = () => {
                 ) : templates.length > 0 ? (
                     templates.map((template, index) => (
                         <div key={index} className="carousel-item">
-                            <img src={template.image} alt={template.name} />
-                            <p>{template.name}</p>
+                            <img className="template-image" src={template.image} alt={template.title} />
+                            <p>{template.title}</p>
                         </div>
                     ))
                 ) : (

@@ -1,27 +1,37 @@
+* {
+    outline: 1px solid red !important;
+}
+
 .carousel-container {
-    position: relative; /* Establish a relative container for positioning */
+    position: relative; 
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start; 
     padding: 20px;
     background-color: #f8f9fa;
 }
 
+.carousel-container h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #5f6368;
+}
+
+
+
 .carousel-title {
     position: absolute;
-    font-size: 20px;
-    color: #5f6368;
 }
 
 .carousel {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 40px 20px 20px; /* Add top padding to account for the title */
+    padding: 40px 20px 20px; 
 }
 
-.new-survey {
-    position: relative; /* Allow child elements to position relative to this */
+.carousel-item {
+    position: relative; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +49,15 @@
     text-align: center;
 }
 
-.new-survey:hover {
+.carousel-item:hover {
     transform: scale(1.01);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add hover effects back */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.template-image {
+    width: 200px; 
+    height: 220px; 
+    object-fit: cover; 
+    border-radius: 8px; 
 }

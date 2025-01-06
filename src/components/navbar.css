@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #BC3908;
+    background-color: #c6d0dd;
     color: white;
 }
 
@@ -13,6 +13,7 @@
     border: none;
     color: white;
     cursor: pointer;
+    padding: 0px;
 }
 
 .logo {

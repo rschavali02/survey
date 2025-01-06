@@ -1,39 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import AuthContext from '../context/authcontext'; // Import AuthContext
 import './surveylist.css';
 
-
-// this isn't done. once we add auth, this wikl fetch the users specific u_id, and get all of their given surveys
-
-//TODO: 
-// get u_id
-// update api routes to include get all surveys where u_id is___
-// replace axios.get api route to new url
-
-
 const SurveyList = () => {
+    const { user } = useContext(AuthContext); // Access the authenticated user
     const [userSurveys, setUserSurveys] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-
-    // Fetch user surveys from the API
+    // Fetch user-specific surveys from the API
     useEffect(() => {
         const fetchUserSurveys = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('http://localhost:4000/api/surveys'); 
-                setUserSurveys(response.data); 
+
+                // Only fetch surveys if the user is authenticated
+                if (user) {
+                    const response = await axios.get(`http://localhost:4000/api/surveys?userId=${user.id}`);
+                    setUserSurveys(response.data);
+                } else {
+                    setUserSurveys([]);
+                }
             } catch (err) {
                 setError('Failed to fetch surveys');
                 console.error(err);
             } finally {
-                setLoading(false); 
+                setLoading(false);
             }
         };
 
         fetchUserSurveys();
-    }, []);
+    }, [user]);
 
     // Render content based on loading, error, and survey data
     if (loading) {
@@ -45,11 +43,16 @@ const SurveyList = () => {
     }
 
     if (userSurveys.length === 0) {
-        return <h2 className="list-title">recent surveys</h2>;
+        return (
+            <div className="survey-list">
+                <h2 className="list-title">Recent Surveys</h2>
+            </div>
+        );
     }
 
     return (
         <div className="survey-list">
+            <h2 className="list-title">Your Surveys</h2>
             {userSurveys.map((survey, index) => (
                 <div key={index} className="survey-item">
                     <h3>{survey.title}</h3>

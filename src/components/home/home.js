@@ -1,25 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../navbar';
 import Carousel from '../carousel';
 import SurveyList from '../surveylist';
+import AuthContext from '../../context/authcontext'; 
 import './home.css';
+
 
 import defaultProfilePicture from '../../assets/fillerpfp.jpg';
 
 
-//TODO: 
-//once auth is added, check for user pfp, and add button functionality to the pfp in top right
-
 const Home = () => {
-    const profilePicture = defaultProfilePicture; 
+    const { user, handleLogout } = useContext(AuthContext); // Access user and logout function
+    const profilePicture = user?.profilePicture || defaultProfilePicture; // Use user profile picture if available
 
     return (
         <div className="homepage">
             <Navbar profilePicture={profilePicture} />
-            <Carousel/>
-            <div className="survey-list-container">
-                <SurveyList />
-            </div>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
+            <Carousel />
+            <SurveyList />
         </div>
     );
 };
