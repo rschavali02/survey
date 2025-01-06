@@ -4,6 +4,7 @@ import Home from './components/home/home';
 import AuthPage from './components/auth/authpage';
 import { AuthProvider } from './context/authcontext';
 import ProtectedRoute from './components/protected';
+import NewSurveyPage from './components/survey/newSurveyPage.tsx';
 
 const App = () => {
     return (
@@ -15,6 +16,15 @@ const App = () => {
                         element={
                             <ProtectedRoute>
                                 <Home />
+                            </ProtectedRoute>
+                        }
+                    />
+                    {/*New Survey Page */}
+                    <Route 
+                        path="/new-survey"
+                        element={
+                            <ProtectedRoute>
+                                <NewSurveyPage />
                             </ProtectedRoute>
                         }
                     />

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './carousel.css';
+import { useNavigate } from 'react-router-dom';
 
 const Carousel = () => {
     const [templates, setTemplates] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     // Fetch survey templates from the API
 
@@ -25,6 +27,10 @@ const Carousel = () => {
         fetchTemplates();
     }, []);
 
+    const handleMakeSurvey = () => {
+        navigate("/new-survey");
+      };
+
     return (
         <div className="carousel-container">
             <h2 className="carousel-title">Make Better Surveys</h2>
@@ -32,6 +38,7 @@ const Carousel = () => {
                 {/* Blank survey card */}
                 <div className="carousel-item new-survey">
                     <p>Blank Survey</p>
+                    <button onClick={handleMakeSurvey}> Make Survey</button>
                 </div>
                 {/* Render templates */}
                 {loading ? (
